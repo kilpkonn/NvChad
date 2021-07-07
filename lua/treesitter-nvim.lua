@@ -11,8 +11,10 @@ M.config = function()
             "bash",
             "lua",
             "json",
-            "python"
-            -- "rust",
+            "python",
+            "rust",
+            "cpp",
+            "c"
             -- "go"
         },
         highlight = {
