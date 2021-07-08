@@ -103,6 +103,8 @@ return packer.startup(
             end
         }
 
+        use "tpope/vim-fugitive"
+
         -- misc plugins
         use {
             "windwp/nvim-autopairs",
@@ -183,6 +185,7 @@ return packer.startup(
                 require("misc-utils").blankline()
             end
         }
+
     end,
     {
         display = {

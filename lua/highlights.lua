@@ -57,9 +57,9 @@ cmd "hi clear CursorLine"
 fg("cursorlinenr", white)
 
 -- git signs ---
-fg_bg("DiffAdd", "#012800", "none")
-fg_bg("DiffChange", "#082040", "none")
-fg_bg("DiffModified", "#340001", "none")
+bg("DiffAdd", "#012800", "none")
+bg("DiffChange", "#082040", "none")
+bg("DiffModified", "#340001", "none")
 
 -- NvimTree
 fg("NvimTreeFolderIcon", blue)

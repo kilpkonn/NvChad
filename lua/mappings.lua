@@ -118,6 +118,11 @@ map("n", "<Leader>fb", [[<Cmd>Telescope buffers<CR>]], opt)
 map("n", "<Leader>fh", [[<Cmd>Telescope help_tags<CR>]], opt)
 map("n", "<Leader>fo", [[<Cmd>Telescope oldfiles<CR>]], opt)
 
+-- Vim Fugitive
+map("n", "<Leader>gs", ":Git<CR>", opt)
+map("n", "<Leader>gh", ":diffget //2<CR>", opt)
+map("n", "<Leader>gl", ":diffget //3<CR>", opt)
+
 -- bufferline tab stuff
 map("n", "<S-t>", ":tabnew<CR>", opt) -- new tab
 map("n", "<S-x>", ":bd!<CR>", opt) -- close tab
