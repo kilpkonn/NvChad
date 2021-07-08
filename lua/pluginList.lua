@@ -160,7 +160,9 @@ return packer.startup(
             "karb94/neoscroll.nvim",
             event = "WinScrolled",
             config = function()
-                require("neoscroll").setup()
+                require("neoscroll").setup({
+                  cursor_scrolls_alone = false,
+                })
             end
         }
 

@@ -139,7 +139,16 @@ fg("DashboardShortcut", grey_fg)
 fg("DashboardFooter", grey_fg)
 
 -- Other
-fg("TSField", "#C5E2F4")
+fg("TSField", "#D2E4F4")
+fg("TSFloat", "#B587D4")
+fg("TSNumber", "#B587D4")
+fg("TSBoolean", "#B587D4")
+fg("TSOperator", "#66C1F8")
+fg("TSNamespace", "#51D3D3")
+fg("TSPunctBracket", "#E89A46")
+fg("TSTypeBuiltin", "#BA6BD7")
+fg("TSConstant", "#E89A46")
+fg("TSConstantBuiltin", "#BA6BD7")
 
 -- set bg color for nvim ( so nvim wont use terminal bg)
 
