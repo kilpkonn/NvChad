@@ -186,6 +186,8 @@ return packer.startup(
             end
         }
 
+        use "DEVELOPEST/gtm-vim"
+
     end,
     {
         display = {

@@ -7,6 +7,7 @@ local g = vim.g
 
 g.mapleader = " "
 g.auto_save = true
+g.gtm_plugin_status_enabled = 1
 
 -- colorscheme related stuff
 
