@@ -11,7 +11,7 @@ g.gtm_plugin_status_enabled = 1
 
 -- colorscheme related stuff
 
-g.nvchad_theme = "onehalfdark"
+g.nvchad_theme = "onedark"
 local base16 = require "base16"
 base16(base16.themes["onedark"], true)
 
