@@ -6,10 +6,12 @@ local colors = require(global_theme)
 local white = colors.white
 local darker_black = colors.darker_black
 local black = colors.black
+local black2 = colors.black2
 local light_grey = colors.light_grey
 local grey = colors.grey
 local light_grey = colors.light_grey
 local grey_fg = colors.grey_fg
+local grey_fg2 = colors.grey_fg2
 local red = colors.red
 local line = colors.line
 local green = colors.green
@@ -38,7 +40,7 @@ fg("IndentBlanklineChar", line)
 
 -- misc --
 fg("LineNr", grey)
-fg("Comment", light_grey)
+fg("Comment", grey_fg2)
 fg("NvimInternalError", red)
 fg("VertSplit", line)
 fg("EndOfBuffer", black)
@@ -57,9 +59,9 @@ cmd "hi clear CursorLine"
 fg("cursorlinenr", white)
 
 -- git signs ---
-bg("DiffAdd", "#012800", "none")
-bg("DiffChange", "#082040", "none")
-bg("DiffModified", "#340001", "none")
+bg("DiffAdd", "#012800")
+bg("DiffChange", "#082040")
+bg("DiffModified", "#340001")
 
 -- NvimTree
 fg("NvimTreeFolderIcon", blue)
@@ -150,11 +152,12 @@ fg("TSTypeBuiltin", "#BA6BD7")
 fg("TSConstant", "#E89A46")
 fg("TSConstantBuiltin", "#BA6BD7")
 
+-- packer's floating window
+
+bg("NormalFloat", black2)
+bg("FloatBorder", black2)
+fg("FloatBorder", black2)
+
 -- set bg color for nvim ( so nvim wont use terminal bg)
 
--- NvChad themes bg colors
--- Onedark #1e222a
--- Gruvbox  #222526
--- tomorrow night #1d1f21
-
-bg("Normal", black) -- change the hex color here.
+bg("Normal", black)
