@@ -9,7 +9,6 @@ local black = colors.black
 local black2 = colors.black2
 local light_grey = colors.light_grey
 local grey = colors.grey
-local light_grey = colors.light_grey
 local grey_fg = colors.grey_fg
 local grey_fg2 = colors.grey_fg2
 local red = colors.red
@@ -46,8 +45,8 @@ fg("VertSplit", line)
 fg("EndOfBuffer", black)
 
 -- Pmenu
-bg("Pmenu", black)
-bg("PmenuSbar", black) -- XXX
+bg("Pmenu", one_bg)
+bg("PmenuSbar", one_bg2)
 bg("PmenuSel", green)
 bg("PmenuThumb", nord_blue)
 
@@ -68,7 +67,7 @@ fg("NvimTreeFolderIcon", blue)
 fg("NvimTreeFolderName", blue)
 fg("NvimTreeOpenedFolderName", blue)
 fg("NvimTreeEmptyFolderName", blue)
-fg("NvimTreeIndentMarker", black) -- XXX
+fg("NvimTreeIndentMarker", one_bg2)
 fg("NvimTreeVertSplit", darker_black)
 bg("NvimTreeVertSplit", darker_black)
 fg("NvimTreeEndOfBuffer", darker_black)
@@ -76,7 +75,7 @@ fg("NvimTreeEndOfBuffer", darker_black)
 fg("NvimTreeRootFolder", darker_black)
 bg("NvimTreeNormal", darker_black)
 fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
-fg_bg("NvimTreeWindowPicker", red, black) -- XXX
+fg_bg("NvimTreeWindowPicker", red, black2)
 
 -- telescope
 fg("TelescopeBorder", line)
@@ -99,39 +98,6 @@ fg("LspDiagnosticsVirtualTextInformation", green)
 -- hint
 fg("LspDiagnosticsSignHint", purple)
 fg("LspDiagnosticsVirtualTextHint", purple)
-
--- bufferline
-
-fg_bg("BufferLineFill", grey_fg, black) -- XXX
-fg_bg("BufferLineBackground", light_grey, black) --- XXX
-
-fg_bg("BufferLineBufferVisible", light_grey, black) --- XXX
-fg_bg("BufferLineBufferSelected", white, black)
-
-cmd "hi BufferLineBufferSelected gui=bold"
-
--- tabs
-fg_bg("BufferLineTab", light_grey, black) -- XXXX
-fg_bg("BufferLineTabSelected", black, nord_blue)
-fg_bg("BufferLineTabClose", red, black)
-
-fg_bg("BufferLineIndicator", black, black) -- XXXX
-fg_bg("BufferLineIndicatorSelected", black, black)
-
--- separators
-fg_bg("BufferLineSeparator", black, black)
-fg_bg("BufferLineSeparatorVisible", black, black)
-fg_bg("BufferLineSeparatorSelected", black, black)
-
--- modified buffers
-fg_bg("BufferLineModified", red, black)
-fg_bg("BufferLineModifiedVisible", red, black)
-fg_bg("BufferLineModifiedSelected", green, black)
-
--- close buttons
-fg_bg("BufferLineCLoseButtonVisible", light_grey, black)
-fg_bg("BufferLineCLoseButton", light_grey, black)
-fg_bg("BufferLineCLoseButtonSelected", red, black)
 
 -- dashboard
 
