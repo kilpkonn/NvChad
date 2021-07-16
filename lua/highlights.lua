@@ -7,6 +7,9 @@ local white = colors.white
 local darker_black = colors.darker_black
 local black = colors.black
 local black2 = colors.black2
+local one_bg = colors.one_bg
+local one_bg2 = colors.one_bg2
+local one_bg3 = colors.one_bg3
 local light_grey = colors.light_grey
 local grey = colors.grey
 local grey_fg = colors.grey_fg
@@ -26,7 +29,7 @@ local function fg(group, color)
 end
 
 local function bg(group, color)
-    cmd("hi " .. group .. " guibg=" .. color)
+  cmd("hi " .. group .. " guibg=" .. color)
 end
 
 local function fg_bg(group, fgcol, bgcol)
@@ -39,7 +42,7 @@ fg("IndentBlanklineChar", line)
 
 -- misc --
 fg("LineNr", grey)
-fg("Comment", grey_fg2)
+fg("Comment", grey_fg)
 fg("NvimInternalError", red)
 fg("VertSplit", line)
 fg("EndOfBuffer", black)
