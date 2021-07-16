@@ -11,13 +11,12 @@ end
 
 ts_config.setup {
     ensure_installed = {
-        "javascript",
-        "html",
         "css",
+        "html",
         "bash",
         "lua",
         "json",
-        "python"
+        "python",
         "rust",
         "cpp",
         "c"
