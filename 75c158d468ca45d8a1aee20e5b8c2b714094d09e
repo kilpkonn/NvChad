@@ -1,3 +1,11 @@
 [ver:1,total:180,branch:main]
 lua/highlights.lua:120,1626458400:120,m
 .git/COMMIT_EDITMSG:60,1626458400:60,r
+
+[ver:1,total:1620,branch:main]
+lua/highlights.lua:1140,1626368400:1140,m
+init.lua:222,1626458400:222,m
+lua/pluginList.lua:96,1626458400:96,m
+.git/index:62,1626458400:62,r
+.git/COMMIT_EDITMSG:60,1626458400:60,r
+lua/plugins/treesitter.lua:40,1626458400:40,m
