@@ -1,6 +1,13 @@
 local opt = vim.opt
 local g = vim.g
 
+-- Turn these off at startup, will be enabled later just before loading the theme
+vim.cmd([[
+    syntax off
+    filetype off
+    filetype plugin indent off
+]])
+
 opt.ruler = false
 opt.hidden = true
 opt.ignorecase = true
@@ -19,7 +26,7 @@ opt.clipboard = "unnamedplus"
 opt.shortmess:append("sI")
 
 -- disable tilde on end of buffer: https://github.com/  neovim/neovim/pull/8546#issuecomment-643643758
-vim.cmd [[let &fcs='eob: ']]
+vim.cmd("let &fcs='eob: '")
 
 -- Numbers
 opt.number = true
@@ -30,6 +37,10 @@ opt.numberwidth = 2
 opt.expandtab = true
 opt.shiftwidth = 2
 opt.smartindent = true
+
+-- go to previous/next line with h,l,left arrow and right arrow
+-- when cursor reaches end/beginning of line
+opt.whichwrap:append("<>hl")
 
 g.mapleader = " "
 g.auto_save = false

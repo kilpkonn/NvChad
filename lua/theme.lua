@@ -1,19 +1,18 @@
 vim.g.nvchad_theme = "onedark"
 
-local base16
-if
-    not pcall(
-        function()
-            base16 = require "base16"
-        end
-    )
- then
-    return false
-else
-    base16(base16.themes["onedark"], true)
+local present, base16 = pcall(require, "base16")
 
-    -- load bg color before async for smooth transition
-    local background = require("themes/" .. vim.g.nvchad_theme).black
-    vim.cmd("hi Normal guibg=" .. background)
+if present then
+    -- enabled these options, was disabled in options.lua
+    vim.cmd([[
+        syntax on
+        filetype on
+        filetype plugin indent on
+    ]])
+
+    base16(base16.themes["onedark"], true)
+    require "highlights"
     return true
+else
+    return false
 end

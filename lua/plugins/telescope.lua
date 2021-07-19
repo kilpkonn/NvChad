@@ -1,11 +1,5 @@
-local telescope
-if
-    not pcall(
-        function()
-            telescope = require("telescope")
-        end
-    )
- then
+local present, telescope = pcall(require, "telescope")
+if not present then
     return
 end
 
@@ -82,5 +76,8 @@ if
     )
  then
     -- This should only trigger when in need of PackerSync, so better do it
-    vim.cmd("PackerSync")
+    print("After completion of PackerSync, restart neovim.")
+    -- Trigger packer compile on PackerComplete, so it properly waits for PackerSync
+    vim.cmd 'autocmd User PackerComplete ++once lua require("packer").compile()'
+    require("packer").sync("telescope-fzf-native.nvim", "telescope-media-files.nvim")
 end

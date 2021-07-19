@@ -1,11 +1,7 @@
+local present, _ = pcall(require, "packerInit")
 local packer
-if
-    pcall(
-        function()
-            require "packerInit"
-        end
-    )
- then
+
+if present then
     packer = require "packer"
 else
     return false
@@ -15,19 +11,32 @@ local use = packer.use
 
 return packer.startup(
     function()
-        use "wbthomason/packer.nvim"
+        use {
+            "wbthomason/packer.nvim",
+            event = "VimEnter"
+        }
 
-        use "akinsho/nvim-bufferline.lua"
+        use {
+            "akinsho/nvim-bufferline.lua",
+            after = "nvim-base16.lua"
+        }
 
         use {
             "glepnir/galaxyline.nvim",
+            after = "nvim-base16.lua",
             config = function()
                 require "plugins.statusline"
             end
         }
 
         -- color related stuff
-        use "siduck76/nvim-base16.lua"
+        use {
+            "siduck76/nvim-base16.lua",
+            after = "packer.nvim",
+            config = function()
+                require "theme"
+            end
+        }
 
         use {
             "norcalli/nvim-colorizer.lua",
@@ -74,7 +83,7 @@ return packer.startup(
             config = function()
                 require "plugins.compe"
             end,
-            wants = {"LuaSnip"},
+            wants = "LuaSnip",
             requires = {
                 {
                     "L3MON4D3/LuaSnip",
@@ -91,7 +100,10 @@ return packer.startup(
             }
         }
 
-        use {"sbdchd/neoformat", cmd = "Neoformat"}
+        use {
+            "sbdchd/neoformat",
+            cmd = "Neoformat"
+        }
 
         -- file managing , picker etc
         use {
@@ -104,24 +116,34 @@ return packer.startup(
 
         use {
             "kyazdani42/nvim-web-devicons",
+            after = "nvim-base16.lua",
             config = function()
                 require "plugins.icons"
             end
         }
 
         use {
+            "nvim-lua/plenary.nvim",
+            event = "BufRead"
+        }
+        use {
+            "nvim-lua/popup.nvim",
+            after = "plenary.nvim"
+        }
+
+        use {
             "nvim-telescope/telescope.nvim",
-            requires = {
-                {"nvim-lua/popup.nvim"},
-                {"nvim-lua/plenary.nvim"}
-            },
             cmd = "Telescope",
             config = function()
                 require "plugins.telescope"
             end
         }
 
-        use {"nvim-telescope/telescope-fzf-native.nvim", run = "make", cmd = "Telescope"}
+        use {
+            "nvim-telescope/telescope-fzf-native.nvim",
+            run = "make",
+            cmd = "Telescope"
+        }
         use {
             "nvim-telescope/telescope-media-files.nvim",
             cmd = "Telescope"
@@ -130,7 +152,7 @@ return packer.startup(
         -- git stuff
         use {
             "lewis6991/gitsigns.nvim",
-            event = "BufRead",
+            after = "plenary.nvim",
             config = function()
                 require "plugins.gitsigns"
             end
@@ -147,7 +169,10 @@ return packer.startup(
             end
         }
 
-        use {"andymass/vim-matchup", event = "CursorMoved"}
+        use {
+            "andymass/vim-matchup",
+            event = "CursorMoved"
+        }
 
         use {
             "terrortylor/nvim-comment",
@@ -171,7 +196,10 @@ return packer.startup(
             end
         }
 
-        use {"tweekmonster/startuptime.vim", cmd = "StartupTime"}
+        use {
+            "tweekmonster/startuptime.vim",
+            cmd = "StartupTime"
+        }
 
         -- load autosave only if its globally enabled
         use {
@@ -195,7 +223,11 @@ return packer.startup(
 
         use {
             "Pocco81/TrueZen.nvim",
-            cmd = {"TZAtaraxis", "TZMinimalist", "TZFocus"},
+            cmd = {
+                "TZAtaraxis",
+                "TZMinimalist",
+                "TZFocus"
+            },
             config = function()
                 require "plugins.zenmode"
             end
