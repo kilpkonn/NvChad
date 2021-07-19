@@ -1,0 +1,6 @@
+[ver:1,total:840,branch:main]
+lua/highlights.lua:306,1626717600:306,m
+lua/plugins/autosave.lua:192,1626717600:192,m
+lua/mappings.lua:150,1626714000:150,m
+.git/index:132,1626714000:90,1626717600:42,r
+.git/COMMIT_EDITMSG:60,1626717600:60,r
