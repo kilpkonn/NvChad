@@ -18,11 +18,6 @@ map("v", "x", [=[ "_x ]=], opt)
  this line too ]]
 --
 
--- escape with 'jk' mapping
-vim.api.nvim_set_keymap("i", "jk", "<esc>", {})
-vim.api.nvim_set_keymap("v", "jk", "<esc>", {})
-vim.api.nvim_set_keymap("t", "jk", "<esc>", {})
-
 -- Don't copy the replaced text after pasting in visual mode
 map("v", "p", '"_dP', opt)
 
@@ -113,7 +108,7 @@ map("i", "<CR>", "v:lua.completions()", {expr = true})
 map("n", "<C-n>", ":NvimTreeToggle<CR>", opt)
 
 -- format code
-map("n", "<Leader>fm", [[<Cmd> Neoformat<CR>]], opt)
+map("n", "ll", [[<Cmd> Neoformat<CR>]], opt)
 
 -- dashboard stuff
 map("n", "<Leader>fw", [[<Cmd> Telescope live_grep<CR>]], opt)
@@ -147,6 +142,3 @@ map("n", "<S-TAB>", [[<Cmd>BufferLineCyclePrev<CR>]], opt)
 
 -- use ESC to turn off search highlighting
 map("n", "<Esc>", ":noh<CR>", opt)
-
--- get out of terminal with jk
-map("t", "jk", "<C-\\><C-n>", opt)
