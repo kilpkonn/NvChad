@@ -1,0 +1,16 @@
+[ver:1,total:1560,branch:main]
+lua/mappings.lua:863,1626976800:593,1626980400:270,m
+lua/plugins/lspconfig.lua:285,1626976800:285,m
+init.lua:270,1626976800:270,r
+.git/COMMIT_EDITMSG:30,1626980400:30,r
+lua/plugins/compe.lua:20,1626976800:20,r
+lua/plugins/treesitter.lua:20,1626976800:20,r
+lua/utils.lua:12,1626976800:12,r
+lua/theme.lua:11,1626976800:11,r
+lua/highlights.lua:7,1626976800:7,r
+lua/plugins/autosave.lua:7,1626976800:7,r
+lua/pluginList.lua:7,1626976800:7,r
+lua/plugins/others.lua:7,1626976800:7,r
+lua/plugins/bufferline.lua:7,1626976800:7,r
+lua/plugins/dashboard.lua:7,1626976800:7,r
+lua/plugins/zenmode.lua:7,1626976800:7,r
