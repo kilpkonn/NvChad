@@ -1,0 +1,4 @@
+[ver:1,total:600,branch:vim-fugitive]
+lua/pluginList.lua:540,1627059600:540,m
+lua/plugins/nvimtree.lua:40,1627059600:40,r
+lua/plugins/zenmode.lua:20,1627059600:20,r
