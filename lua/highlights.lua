@@ -121,6 +121,8 @@ fg("TSTypeBuiltin", "#BA6BD7")
 fg("TSConstant", "#E89A46")
 fg("TSConstantBuiltin", "#BA6BD7")
 
+fg("InlayHint", "#1070A0")
+
 -- packer's floating window
 
 bg("NormalFloat", black2)
