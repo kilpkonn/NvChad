@@ -1,17 +1,9 @@
-require "options"
+local chad_modules = {
+    "options",
+    "mappings",
+    "utils"
+}
 
-local async
-async =
-    vim.loop.new_async(
-    vim.schedule_wrap(
-        function()
-            require "pluginList"
-            require "plugins.bufferline"
-            require "mappings"
-            require("utils").hideStuff()
-
-            async:close()
-        end
-    )
-)
-async:send()
+for i = 1, #chad_modules, 1 do
+    pcall(require, chad_modules[i])
+end

@@ -21,7 +21,7 @@ _check_install_dependencies() {
     printf "%s\n" "Error: Install ${1} before proceeding."
     exit 1
   }
-  _GIT="$(command -v git)" || _error_dependencies git
+  command -v git 1>/dev/null || _error_dependencies git
   _SED="$(command -v sed)" || _error_dependencies sed
   return 0
 }
@@ -71,27 +71,31 @@ _setup_terminal_shell() {
   _mappings_file="${_CONFIG_PATH}/lua/mappings.lua"
   # only ask for shellname if running in terminal
   if [ -t 1 ]; then
-    printf "%s\n: " "Which shell do you want to use ? [ Enter nothing for current shell ( $_CURRENT_SHELL ) ]"
-    read -r shellname
+    if chsh -l 2>/dev/null 1>&2; then
+      printf "\nAvailable Shells:\n"
+      chsh -l | nl
+      printf "\n%s\n" "Which shell do you want to use? (Eg. 2)"
+      printf "\t%s\n" "[ Enter nothing for current shell ( $_CURRENT_SHELL ) ]"
+      read -r shellnum
+      [ "${shellnum}" -gt 0 ] 2>/dev/null && _SHELLPATH="$(chsh -l | sed -n "$shellnum p")"
+    fi
   fi
-  shellname="${shellname:-${_CURRENT_SHELL}}"
-  printf "%s\n" "$shellname"
 
-  # don't try to do any changes if given shellname is same as bash
-  if ! [ bash = "$shellname" ]; then
+  # don't try to do any changes user wants their default shell in nvim
+  if [ -n "$_SHELLPATH" ]; then
     # Reference: https://stackoverflow.com/a/4247319
-    if "${_SED}" -i'.bak' -e "s/bash/$shellname/g" "${_mappings_file}"; then
-      printf "\n%s\n" "=> Shell changed to $shellname on nvim successfully!"
+    # \( & \) will use regex brackets (for later reference with \1)
+    # ( & ) will match text brackets
+    if "${_SED}" --posix -i'.bak' -e "s=^\(map(.* \+*terminal\) \(.*)\)=\1$_SHELLPATH \2=g" "${_mappings_file}"; then
+      printf "%s\n" "=> Neovim shell changed to $_SHELLPATH successfully!"
     else
-      printf "\n%s\n" "Cannot edit with sed, edit ${_mappings_file} manually to replace bash with $shellname."
+      printf "%s\n" "Cannot edit with sed, edit ${_mappings_file} manually to replace bash with $_SHELLPATH."
     fi
     rm -f "${_mappings_file}".bak # delete backup file created by sed
-  else
-    printf "\n%s\n" "=> Shell changed to $shellname on nvim successfully!"
   fi
+  printf "%s\n" "=> Neovim shell will be ${_SHELLPATH:-${_CURRENT_SHELL}}"
   return 0
 }
-
 _setup_arguments() {
   # default variables to be used
   _CONFIG_PATH="${HOME}/.config/nvim"

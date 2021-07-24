@@ -18,7 +18,10 @@ return packer.startup(
 
         use {
             "akinsho/nvim-bufferline.lua",
-            after = "nvim-base16.lua"
+            after = "nvim-base16.lua",
+            config = function()
+                require "plugins.bufferline"
+            end
         }
 
         use {
@@ -158,8 +161,6 @@ return packer.startup(
             end
         }
 
-        use "tpope/vim-fugitive"
-
         -- misc plugins
         use {
             "windwp/nvim-autopairs",
@@ -197,7 +198,7 @@ return packer.startup(
         }
 
         use {
-            "tweekmonster/startuptime.vim",
+            "dstein64/vim-startuptime",
             cmd = "StartupTime"
         }
 
@@ -243,7 +244,16 @@ return packer.startup(
             end
         }
 
-        use "DEVELOPEST/gtm-vim"
+        use {
+            "DEVELOPEST/gtm-vim",
+            event = "BufRead"
+        }
 
+        use {
+            "tpope/vim-fugitive",
+            cmd = {
+              "Git"
+            }
+        }
     end
 )
