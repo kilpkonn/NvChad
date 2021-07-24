@@ -1,0 +1,14 @@
+[ver:1,total:4320,branch:main]
+lua/pluginList.lua:2009,1627113600:420,1627117200:1319,1627120800:270,m
+lua/plugins/lspextensions.lua:1180,1627117200:1180,d
+lua/plugins/lspconfig.lua:384,1627117200:384,r
+lua/plugins/rust-tools.lua:361,1627117200:151,1627120800:210,r
+lua/plugins/autosave.lua:90,1627117200:90,r
+lua/plugins/zenmode.lua:86,1627117200:86,r
+.git/COMMIT_EDITMSG:60,1627120800:60,r
+lua/plugins/treesitter.lua:60,1627117200:60,r
+lua/packerInit.lua:30,1627117200:30,r
+lua/plugins/others.lua:24,1627117200:24,r
+lua/plugins/compe.lua:12,1627117200:12,r
+lua/plugins/gitsigns.lua:12,1627117200:12,r
+lua/plugins/autopairs.lua:12,1627117200:12,r
