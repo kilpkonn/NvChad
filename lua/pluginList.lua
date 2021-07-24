@@ -255,5 +255,14 @@ return packer.startup(
               "Git"
             }
         }
+
+        use {
+            "simrat39/rust-tools.nvim",
+            after = "nvim-lspconfig",
+            ft = {'rs', 'ron'},
+            config = function ()
+                require "plugins.rust-tools"
+            end
+        }
     end
 )
