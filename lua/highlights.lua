@@ -29,11 +29,15 @@ local function fg(group, color)
 end
 
 local function bg(group, color)
-  cmd("hi " .. group .. " guibg=" .. color)
+    cmd("hi " .. group .. " guibg=" .. color)
 end
 
 local function fg_bg(group, fgcol, bgcol)
     cmd("hi " .. group .. " guifg=" .. fgcol .. " guibg=" .. bgcol)
+end
+
+local function cl(group)
+    cmd("hi clear " .. group)
 end
 
 -- blankline
@@ -61,9 +65,12 @@ cmd "hi clear CursorLine"
 fg("cursorlinenr", white)
 
 -- git signs ---
-fg_bg("DiffAdd", "none", "#012800")
-fg_bg("DiffChange", "none", "#082040")
-fg_bg("DiffModified", "none", "#340001")
+cl("DiffAdd")
+bg("DiffAdd", "#012800")
+cl("DiffChange")
+bg("DiffChange", "#082040")
+cl("DiffModified")
+bg("DiffModified", "#340001")
 
 -- NvimTree
 fg("NvimTreeFolderIcon", blue)
@@ -120,6 +127,7 @@ fg("TSPunctBracket", "#E89A46")
 fg("TSTypeBuiltin", "#BA6BD7")
 fg("TSConstant", "#E89A46")
 fg("TSConstantBuiltin", "#BA6BD7")
+fg("TSRepeat", "#E06C75")
 
 fg("InlayHint", "#1070A0")
 
