@@ -1,0 +1,5 @@
+[ver:1,total:1260,branch:main]
+lua/highlights.lua:750,1627146000:750,m
+lua/pluginList.lua:360,1627146000:360,r
+lua/plugins/rust-tools.lua:90,1627146000:90,m
+.git/COMMIT_EDITMSG:60,1627146000:60,r
