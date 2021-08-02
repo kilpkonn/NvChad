@@ -82,7 +82,7 @@ fg("NvimTreeVertSplit", darker_black)
 bg("NvimTreeVertSplit", darker_black)
 fg("NvimTreeEndOfBuffer", darker_black)
 
-fg("NvimTreeRootFolder", darker_black)
+vim.cmd("hi NvimTreeRootFolder gui=underline guifg=" .. purple)
 bg("NvimTreeNormal", darker_black)
 fg_bg("NvimTreeStatuslineNc", darker_black, darker_black)
 fg_bg("NvimTreeWindowPicker", red, black2)
@@ -137,6 +137,5 @@ bg("NormalFloat", black2)
 bg("FloatBorder", black2)
 fg("FloatBorder", black2)
 
--- set bg color for nvim ( so nvim wont use terminal bg)
-
-bg("Normal", black)
+-- set bg color for nvim
+-- bg("Normal", black)

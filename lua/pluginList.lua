@@ -17,6 +17,14 @@ return packer.startup(
         }
 
         use {
+            "jdhao/better-escape.vim",
+            event = "InsertEnter",
+            config = function()
+                require "plugins.others".escape()
+            end
+        }
+
+        use {
             "akinsho/nvim-bufferline.lua",
             after = "nvim-base16.lua",
             config = function()
@@ -60,7 +68,7 @@ return packer.startup(
 
         use {
             "kabouzeid/nvim-lspinstall",
-            event = "BufRead"
+            event = "BufEnter"
         }
 
         use {
@@ -73,7 +81,7 @@ return packer.startup(
 
         use {
             "onsails/lspkind-nvim",
-            event = "BufRead",
+            event = "BufEnter",
             config = function()
                 require("plugins.others").lspkind()
             end
@@ -197,11 +205,6 @@ return packer.startup(
             end
         }
 
-        use {
-            "dstein64/vim-startuptime",
-            cmd = "StartupTime"
-        }
-
         -- load autosave only if its globally enabled
         use {
             "Pocco81/AutoSave.nvim",
@@ -252,7 +255,7 @@ return packer.startup(
         use {
             "tpope/vim-fugitive",
             cmd = {
-              "Git"
+                "Git"
             }
         }
 
