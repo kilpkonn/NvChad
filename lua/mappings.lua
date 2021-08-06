@@ -161,6 +161,7 @@ map("n", "<Leader>gh", ":diffget //2<CR>", opt)
 map("n", "<Leader>gl", ":diffget //3<CR>", opt)
 map("n", "<Leader>gb", ":Git blame<CR>", opt)
 
+-- DAP
 map('n', '<F10>', ':lua require"dap".continue()<CR>')
 map('n', '<F7>', ':lua require"dap".step_over()<CR>')
 map('n', '<F6>', ':lua require"dap".step_into()<CR>')
