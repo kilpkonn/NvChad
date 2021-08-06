@@ -267,5 +267,23 @@ return packer.startup(
                 require "plugins.rust-tools"
             end
         }
+
+        use {
+            'mfussenegger/nvim-dap',
+            event = "BufRead",
+            config = function ()
+              require "plugins.dap"
+            end
+        }
+
+        use {
+          'theHamsta/nvim-dap-virtual-text',
+          event = "BufRead"
+        }
+
+        use {
+          'Pocco81/DAPInstall.nvim',
+          event = "BufRead"
+        }
     end
 )

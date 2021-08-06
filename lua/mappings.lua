@@ -160,3 +160,29 @@ map("n", "<Leader>gs", ":Git<CR>", opt)
 map("n", "<Leader>gh", ":diffget //2<CR>", opt)
 map("n", "<Leader>gl", ":diffget //3<CR>", opt)
 map("n", "<Leader>gb", ":Git blame<CR>", opt)
+
+map('n', '<F10>', ':lua require"dap".continue()<CR>')
+map('n', '<F7>', ':lua require"dap".step_over()<CR>')
+map('n', '<F6>', ':lua require"dap".step_into()<CR>')
+map('n', '<F8>', ':lua require"dap".step_out()<CR>')
+map('n', '<leader>db', ':lua require"dap".toggle_breakpoint()<CR>')
+
+map('n', '<leader>dsc', ':lua require"dap.ui.variables".scopes()<CR>')
+map('n', '<leader>dhh', ':lua require"dap.ui.variables".hover()<CR>')
+map('v', '<leader>dhv', ':lua require"dap.ui.variables".visual_hover()<CR>')
+
+map('n', '<leader>duh', ':lua require"dap.ui.widgets".hover()<CR>')
+map('n', '<leader>duf', ":lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>")
+
+map('n', '<leader>dsbr', ':lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
+map('n', '<leader>dsbm', ':lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>')
+map('n', '<leader>dro', ':lua require"dap".repl.open()<CR>')
+map('n', '<leader>drl', ':lua require"dap".repl.run_last()<CR>')
+
+
+-- telescope-dap
+map('n', '<leader>dcc', ':lua require"telescope".extensions.dap.commands{}<CR>')
+map('n', '<leader>dco', ':lua require"telescope".extensions.dap.configurations{}<CR>')
+map('n', '<leader>dlb', ':lua require"telescope".extensions.dap.list_breakpoints{}<CR>')
+map('n', '<leader>dv', ':lua require"telescope".extensions.dap.variables{}<CR>')
+map('n', '<leader>df', ':lua require"telescope".extensions.dap.frames{}<CR>')
