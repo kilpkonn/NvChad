@@ -282,6 +282,11 @@ return packer.startup(
         }
 
         use {
+          'nvim-telescope/telescope-dap.nvim',
+          event = "VimEnter"
+        }
+
+        use {
           'Pocco81/DAPInstall.nvim',
           event = "BufRead"
         }
