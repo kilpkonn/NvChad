@@ -60,7 +60,7 @@ return packer.startup(
         -- lsp stuff
         use {
             "nvim-treesitter/nvim-treesitter",
-            event = "BufRead",
+            event = "VimEnter",
             config = function()
                 require "plugins.treesitter"
             end
@@ -297,6 +297,18 @@ return packer.startup(
         use {
           'Pocco81/DAPInstall.nvim',
           event = "BufRead"
+        }
+
+        use {
+          'sudormrfbin/cheatsheet.nvim',
+          cmd = {
+            'Cheatsheet'
+          },
+          requires = {
+            {'nvim-telescope/telescope.nvim'},
+            {'nvim-lua/popup.nvim'},
+            {'nvim-lua/plenary.nvim'},
+          }
         }
     end
 )

@@ -148,12 +148,6 @@ map("n", "<S-TAB>", ":BufferLineCyclePrev<CR>", opt)
 -- use ESC to turn off search highlighting
 map("n", "<Esc>", ":noh<CR>", opt)
 
--- Packer commands till because we are not loading it at startup
-vim.cmd("silent! command PackerCompile lua require 'pluginList' require('packer').compile()")
-vim.cmd("silent! command PackerInstall lua require 'pluginList' require('packer').install()")
-vim.cmd("silent! command PackerStatus lua require 'pluginList' require('packer').status()")
-vim.cmd("silent! command PackerSync lua require 'pluginList' require('packer').sync()")
-vim.cmd("silent! command PackerUpdate lua require 'pluginList' require('packer').update()")
 
 -- Vim Fugitive
 map("n", "<Leader>gs", ":Git<CR>", opt)
@@ -187,3 +181,6 @@ map('n', '<leader>dco', ':lua require"telescope".extensions.dap.configurations{}
 map('n', '<leader>dlb', ':lua require"telescope".extensions.dap.list_breakpoints{}<CR>')
 map('n', '<leader>dv', ':lua require"telescope".extensions.dap.variables{}<CR>')
 map('n', '<leader>df', ':lua require"telescope".extensions.dap.frames{}<CR>')
+
+-- Cheatsheet
+map('n', '<leader>?', ':Cheatsheet<CR>')
