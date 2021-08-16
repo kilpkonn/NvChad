@@ -1,0 +1,12 @@
+[ver:1,total:2040,branch:main]
+lua/mappings.lua:500,1629046800:278,1629133200:222,m
+init.lua:462,1629046800:195,1629133200:267,m
+lua/pluginList.lua:461,1629046800:20,1629133200:441,m
+.git/index:186,1629046800:186,r
+lua/options.lua:131,1629046800:131,r
+lua/plugins/others.lua:95,1629046800:95,r
+.git/COMMIT_EDITMSG:60,1629133200:60,r
+lua/plugins/lspconfig.lua:55,1629046800:55,r
+lua/themes/onedark.lua:45,1629133200:45,r
+lua/telescope/_extensions/themes.lua:30,1629133200:30,r
+lua/themes/gruvchad.lua:15,1629133200:15,r
