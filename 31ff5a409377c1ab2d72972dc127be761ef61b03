@@ -1,0 +1,5 @@
+[ver:1,total:720,branch:main]
+lua/plugins/todo-comments.lua:432,1629468000:432,m
+lua/pluginList.lua:210,1629468000:210,m
+.git/COMMIT_EDITMSG:60,1629468000:60,r
+lua/plugins/rust-tools.lua:18,1629468000:18,r
