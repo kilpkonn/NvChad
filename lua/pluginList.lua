@@ -310,5 +310,13 @@ return packer.startup(
             {'nvim-lua/plenary.nvim'},
           }
         }
+
+        use {
+          'folke/todo-comments.nvim',
+          requires = 'nvim-lua/plenary.nvim',
+          config = function()
+            require 'plugins.todo-comments'  
+          end
+        }
     end
 )
