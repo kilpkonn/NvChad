@@ -314,9 +314,20 @@ return packer.startup(
         use {
           'folke/todo-comments.nvim',
           requires = 'nvim-lua/plenary.nvim',
+          event = 'BufRead',
           config = function()
-            require 'plugins.todo-comments'  
+            require 'plugins.todo-comments'
           end
         }
+
+        use {
+          "folke/trouble.nvim",
+          requires = "kyazdani42/nvim-web-devicons",
+          config = function()
+            require("trouble").setup {
+            }
+          end
+        }
+
     end
 )
