@@ -1,0 +1,5 @@
+[ver:1,total:600,branch:main]
+lua/pluginList.lua:450,1629471600:180,1629475200:180,1629536400:90,m
+lua/plugins/trouble.lua:96,1629536400:96,m
+lua/plugins/todo-comments.lua:42,1629536400:42,r
+.git/COMMIT_EDITMSG:12,1629536400:12,r
