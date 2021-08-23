@@ -1,0 +1,6 @@
+[ver:1,total:240,branch:main]
+lua/autocmds.lua:95,1629738000:95,m
+lua/options.lua:60,1629738000:40,1629741600:20,m
+.gitignore:50,1629738000:30,1629741600:20,m
+.git/COMMIT_EDITMSG:20,1629741600:20,r
+lua/user_config.lua:15,1629738000:15,r
