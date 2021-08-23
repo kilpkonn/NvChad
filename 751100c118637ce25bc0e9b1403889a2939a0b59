@@ -1,0 +1,5 @@
+[ver:1,total:480,branch:main]
+lua/plugins/statusline.lua:300,1629738000:300,m
+init.lua:80,1629738000:80,m
+.git/COMMIT_EDITMSG:60,1629738000:60,r
+lua/autocmds.lua:40,1629738000:40,m
