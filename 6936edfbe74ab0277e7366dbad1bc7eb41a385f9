@@ -1,0 +1,6 @@
+[ver:1,total:180,branch:main]
+install.sh:60,1629741600:60,r
+lua/pluginList.lua:40,1629741600:40,m
+lua/plugins/telescope.lua:30,1629741600:30,m
+lua/mappings.lua:30,1629741600:30,r
+.git/COMMIT_EDITMSG:20,1629741600:20,r
