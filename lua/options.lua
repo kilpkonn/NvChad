@@ -24,6 +24,7 @@ opt.fillchars = {eob = " "}
 
 -- Numbers
 opt.number = true
+opt.relativenumber = true
 opt.numberwidth = 2
 -- opt.relativenumber = true
 

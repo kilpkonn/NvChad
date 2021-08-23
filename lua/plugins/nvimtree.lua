@@ -18,7 +18,7 @@ g.nvim_tree_auto_close = 0 -- closes tree when it's the last window
 g.nvim_tree_quit_on_open = 0 -- closes tree when file's opened
 g.nvim_tree_follow = 1
 g.nvim_tree_indent_markers = 1
-g.nvim_tree_hide_dotfiles = 1
+g.nvim_tree_hide_dotfiles = 0
 g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 0
 g.nvim_tree_root_folder_modifier = table.concat {":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??"}
@@ -51,10 +51,10 @@ g.nvim_tree_icons = {
         -- disable indent_markers option to get arrows working or if you want both arrows and indent then just add the arrow icons in front            ofthe default and opened folders below!
         -- arrow_open = "",
         -- arrow_closed = "",
-        default = "",
-        open = "",
-        empty = "", -- 
-        empty_open = "",
+        default = "",
+        open = "",
+        empty = "", -- 
+        empty_open = "",
         symlink = "",
         symlink_open = ""
     }
@@ -93,6 +93,3 @@ g.nvim_tree_bindings = {
     {key = "q", cb = tree_cb("close")},
     {key = "g?", cb = tree_cb("toggle_help")}
 }
-
--- hide statusline when nvim tree is opened
-vim.cmd [[au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif]]

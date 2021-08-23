@@ -183,4 +183,4 @@ map('n', '<leader>dv', ':lua require"telescope".extensions.dap.variables{}<CR>')
 map('n', '<leader>df', ':lua require"telescope".extensions.dap.frames{}<CR>')
 
 -- Cheatsheet
-map('n', '<leader>?', ':Cheatsheet<CR>')
+map('n', '<leader>?', ':Cheatsheet<CR>', opt)

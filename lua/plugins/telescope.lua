@@ -20,7 +20,7 @@ telescope.setup(
             entry_prefix = "  ",
             initial_mode = "insert",
             selection_strategy = "reset",
-            sorting_strategy = "descending",
+            sorting_strategy = "ascending",
             layout_strategy = "horizontal",
             layout_config = {
                 horizontal = {
@@ -66,9 +66,6 @@ telescope.setup(
         }
     }
 )
-
--- load the theme_switcher extension
-require("telescope").load_extension("themes")
 
 if
     not pcall(

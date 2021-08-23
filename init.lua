@@ -1,5 +1,6 @@
 require "options"
 require "mappings"
+require "autocmds"
 
 
 -- Packer commands till because we are not loading it at startup

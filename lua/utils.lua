@@ -26,32 +26,6 @@ M.reload_plugin = function(plugins)
     return status
 end
 
--- return a table of available themes
-M.list_themes = function(return_type)
-    local themes = {}
-    -- folder where theme files are stored
-    local themes_folder = vim.fn.stdpath("config") .. "/lua/themes"
-    -- list all the contents of the folder and filter out files with .lua extension, then append to themes table
-    local fd = vim.loop.fs_scandir(themes_folder)
-    if fd then
-        while true do
-            local name, typ = vim.loop.fs_scandir_next(fd)
-            if name == nil then
-                break
-            end
-            if typ ~= "directory" and string.find(name, ".lua") then
-                -- return the table values as keys if specified
-                if return_type == "keys_as_value" then
-                    themes[vim.fn.fnamemodify(name, ":r")] = true
-                else
-                    table.insert(themes, vim.fn.fnamemodify(name, ":r"))
-                end
-            end
-        end
-    end
-    return themes
-end
-
 -- 1st arg - r or w
 -- 2nd arg - file path
 -- 3rd arg - content if 1st arg is w
@@ -74,31 +48,6 @@ M.file = function(mode, filepath, content)
     return data
 end
 
--- 1st arg as current theme, 2nd as new theme
-M.change_theme = function(current_theme, new_theme)
-    if current_theme == nil or new_theme == nil then
-        print "Error: Provide current and new theme name"
-        return false
-    end
-    if current_theme == new_theme then
-        return
-    end
-
-    local file = vim.fn.stdpath("config") .. "/lua/user_config.lua"
-    -- store in data variable
-    local data = assert(M.file("r", file))
-    local find = "theme = .?" .. current_theme .. ".?"
-    local replace = 'theme = "' .. new_theme .. '"'
-    local content = string.gsub(data, find, replace)
-    -- see if the find string exists in file
-    if content == data then
-        print("Error: Cannot change default theme with " .. new_theme .. ", edit " .. file .. " manually")
-        return false
-    else
-        assert(M.file("w", file, content))
-    end
-end
-
 M.clear_cmdline = function()
     vim.defer_fn(
         function()
@@ -107,5 +56,30 @@ M.clear_cmdline = function()
         0
     )
 end
+
+-- hide statusline
+M.hide_statusline = function()
+   local hidden = {
+     "NvimTree",
+     "terminal",
+     "dashboard",
+   }
+   local shown = {}
+   local api = vim.api
+   local buftype = api.nvim_buf_get_option("%", "ft")
+
+   -- shown table from config has the highest priority
+   if vim.tbl_contains(shown, buftype) then
+      api.nvim_set_option("laststatus", 2)
+      return
+   end
+
+   if vim.tbl_contains(hidden, buftype) then
+      api.nvim_set_option("laststatus", 0)
+      return
+   else
+      api.nvim_set_option("laststatus", 2)
+   end
+ end
 
 return M

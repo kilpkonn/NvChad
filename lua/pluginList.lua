@@ -97,26 +97,26 @@ return packer.startup(
 
         -- load compe in insert mode only
         use {
-            "hrsh7th/nvim-compe",
-            event = "InsertEnter",
-            config = function()
-                require "plugins.compe"
-            end,
-            wants = "LuaSnip",
-            requires = {
-                {
-                    "L3MON4D3/LuaSnip",
-                    wants = "friendly-snippets",
-                    event = "InsertCharPre",
-                    config = function()
-                        require "plugins.luasnip"
-                    end
-                },
-                {
-                    "rafamadriz/friendly-snippets",
-                    event = "InsertCharPre"
-                }
-            }
+           "hrsh7th/nvim-compe",
+           event = "InsertEnter",
+           config = function()
+              require "plugins.compe"
+           end,
+           wants = "LuaSnip",
+           requires = {
+              {
+                 "L3MON4D3/LuaSnip",
+                 wants = "friendly-snippets",
+                 event = "InsertCharPre",
+                 config = function()
+                    require "plugins.luasnip"
+                 end,
+              },
+              {
+                 "rafamadriz/friendly-snippets",
+                 event = "InsertCharPre",
+              },
+           },
         }
 
         use {
@@ -151,22 +151,30 @@ return packer.startup(
         }
 
         use {
-            "nvim-telescope/telescope.nvim",
-            cmd = "Telescope",
-            config = function()
-                require "plugins.telescope"
-            end
-        }
-
-        use {
-            "nvim-telescope/telescope-fzf-native.nvim",
-            run = "make",
-            cmd = "Telescope"
-        }
-        use {
-            "nvim-telescope/telescope-media-files.nvim",
-            cmd = "Telescope"
-        }
+          "nvim-telescope/telescope.nvim",
+          cmd = "Telescope",
+          -- because cheatsheet is not activated by a teleacope command
+          module = "cheatsheet",
+          requires = {
+             {
+                "sudormrfbin/cheatsheet.nvim",
+                after = "telescope.nvim",
+                config = function()
+                   -- TODO: Add custom bindings
+                end,
+             },
+             {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                run = "make",
+             },
+             {
+                "nvim-telescope/telescope-media-files.nvim",
+             },
+          },
+          config = function()
+             require "plugins.telescope"
+          end,
+       }
 
         -- git stuff
         use {
