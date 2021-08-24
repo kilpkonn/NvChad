@@ -14,7 +14,8 @@ ts_config.setup {
         "rust",
         "cpp",
         "c",
-        "toml"
+        "toml",
+        "haskell"
         -- "go"
     },
     highlight = {
