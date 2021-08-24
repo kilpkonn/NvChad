@@ -13,7 +13,8 @@ ts_config.setup {
         "python",
         "rust",
         "cpp",
-        "c"
+        "c",
+        "toml"
         -- "go"
     },
     highlight = {
