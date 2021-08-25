@@ -179,7 +179,9 @@ return packer.startup(
         -- git stuff
         use {
             "lewis6991/gitsigns.nvim",
-            after = "plenary.nvim",
+            cond = function()
+                return vim.fn.isdirectory ".git" == 1
+            end,
             config = function()
                 require "plugins.gitsigns"
             end
