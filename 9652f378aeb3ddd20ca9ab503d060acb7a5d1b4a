@@ -1,2 +1,9 @@
 [ver:1,total:60,branch:main]
 .git/COMMIT_EDITMSG:60,1629910800:60,r
+
+[ver:1,total:900,branch:main]
+lua/pluginList.lua:330,1629907200:330,m
+lua/plugins/lspconfig.lua:240,1629907200:240,m
+lua/plugins/compe.lua:180,1629907200:150,1629910800:30,r
+lua/mappings.lua:120,1629907200:120,m
+.git/COMMIT_EDITMSG:30,1629910800:30,r
