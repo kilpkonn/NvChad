@@ -1,14 +1,9 @@
 local present, _ = pcall(require, "packerInit")
 local packer
-
 if present then
     packer = require "packer"
 else
-    return false
-end
-
-local use = packer.use
-
+    return false end
 return packer.startup(
     function()
         use {
@@ -17,11 +12,31 @@ return packer.startup(
         }
 
         use {
-            "jdhao/better-escape.vim",
-            event = "InsertEnter",
+            "nvim-lua/plenary.nvim",
+        }
+
+        use {
+            "siduck76/nvim-base16.lua",
+            after = "packer.nvim",
             config = function()
-                require "plugins.others".escape()
+                require "theme"
             end
+        }
+
+        use {
+            "kyazdani42/nvim-web-devicons",
+            after = "nvim-base16.lua",
+            config = function()
+                require "plugins.icons"
+            end
+        }
+
+        use {
+            "famiu/feline.nvim",
+            after = "nvim-web-devicons",
+            config = function()
+               require "plugins.statusline"
+            end,
         }
 
         use {
@@ -33,19 +48,18 @@ return packer.startup(
         }
 
         use {
+            "jdhao/better-escape.vim",
+            event = "InsertEnter",
+            config = function()
+                require "plugins.others".escape()
+            end
+        }
+
+        use {
             "glepnir/galaxyline.nvim",
             after = "nvim-base16.lua",
             config = function()
                 require "plugins.statusline"
-            end
-        }
-
-        -- color related stuff
-        use {
-            "siduck76/nvim-base16.lua",
-            after = "packer.nvim",
-            config = function()
-                require "theme"
             end
         }
 
@@ -57,7 +71,6 @@ return packer.startup(
             end
         }
 
-        -- lsp stuff
         use {
             "nvim-treesitter/nvim-treesitter",
             event = "VimEnter",
@@ -95,28 +108,46 @@ return packer.startup(
             end
         }
 
-        -- load compe in insert mode only
         use {
-           "hrsh7th/nvim-compe",
-           event = "InsertEnter",
-           config = function()
-              require "plugins.compe"
-           end,
-           wants = "LuaSnip",
-           requires = {
-              {
-                 "L3MON4D3/LuaSnip",
-                 wants = "friendly-snippets",
-                 event = "InsertCharPre",
-                 config = function()
-                    require "plugins.luasnip"
-                 end,
-              },
-              {
-                 "rafamadriz/friendly-snippets",
-                 event = "InsertCharPre",
-              },
-           },
+            "hrsh7th/nvim-cmp",
+            event = "InsertEnter",
+            config = function()
+               require "plugins.cmp"
+            end,
+        }
+
+        use {
+            "L3MON4D3/LuaSnip",
+            wants = "friendly-snippets",
+            after = "nvim-cmp",
+            config = function()
+               require("plugins.others").luasnip()
+            end,
+         }
+
+        use {
+            "saadparwaiz1/cmp_luasnip",
+            after = "LuaSnip",
+        }
+
+        use {
+            "hrsh7th/cmp-nvim-lua",
+            after = "cmp_luasnip",
+        }
+
+        use {
+            "hrsh7th/cmp-nvim-lsp",
+            after = "cmp-nvim-lua",
+        }
+
+        use {
+            "hrsh7th/cmp-buffer",
+            after = "cmp-nvim-lsp",
+        }
+
+        use {
+            "rafamadriz/friendly-snippets",
+            after = "cmp-buffer",
         }
 
         use {
@@ -133,18 +164,6 @@ return packer.startup(
             end
         }
 
-        use {
-            "kyazdani42/nvim-web-devicons",
-            after = "nvim-base16.lua",
-            config = function()
-                require "plugins.icons"
-            end
-        }
-
-        use {
-            "nvim-lua/plenary.nvim",
-            event = "BufRead"
-        }
         use {
             "nvim-lua/popup.nvim",
             after = "plenary.nvim"
@@ -190,7 +209,7 @@ return packer.startup(
         -- misc plugins
         use {
             "windwp/nvim-autopairs",
-            after = "nvim-compe",
+            after = "nvim-cmp",
             config = function()
                 require "plugins.autopairs"
             end
@@ -254,8 +273,6 @@ return packer.startup(
                 require "plugins.zenmode"
             end
         }
-
-        --   use "alvan/vim-closetag" -- for html autoclosing tag
 
         use {
             "lukas-reineke/indent-blankline.nvim",
