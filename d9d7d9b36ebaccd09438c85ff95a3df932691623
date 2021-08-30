@@ -1,0 +1,5 @@
+[ver:1,total:840,branch:main]
+lua/plugins/statusline.lua:680,1630346400:300,1630350000:380,m
+lua/pluginList.lua:110,1630346400:60,1630350000:50,m
+.git/COMMIT_EDITMSG:30,1630350000:30,r
+lua/packerInit.lua:20,1630350000:20,r
