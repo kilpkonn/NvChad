@@ -1,0 +1,4 @@
+[ver:1,total:60,branch:main]
+lua/plugins/statusline.lua:20,1630350000:20,m
+.git/COMMIT_EDITMSG:20,1630350000:20,r
+lua/plugins/lspconfig.lua:20,1630350000:20,r
