@@ -1,3 +1,12 @@
 [ver:1,total:120,branch:main]
 lua/plugins/statusline.lua:60,1630346400:60,m
 .git/COMMIT_EDITMSG:60,1630346400:60,r
+
+[ver:1,total:1320,branch:main]
+lua/pluginList.lua:878,1630346400:878,m
+lua/plugins/statusline.lua:150,1630346400:150,m
+lua/plugins/cmp.lua:90,1630346400:90,r
+lua/plugins/others.lua:67,1630346400:67,m
+.git/COMMIT_EDITMSG:60,1630346400:60,r
+lua/plugins/bufferline.lua:45,1630346400:45,m
+lua/plugins/lspkind_icons.lua:30,1630346400:30,r
