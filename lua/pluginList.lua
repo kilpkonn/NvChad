@@ -1,9 +1,12 @@
 local present, _ = pcall(require, "packerInit")
 local packer
+
 if present then
     packer = require "packer"
 else
-    return false end
+    return false
+end
+
 return packer.startup(
     function()
         use {
@@ -52,14 +55,6 @@ return packer.startup(
             event = "InsertEnter",
             config = function()
                 require "plugins.others".escape()
-            end
-        }
-
-        use {
-            "glepnir/galaxyline.nvim",
-            after = "nvim-base16.lua",
-            config = function()
-                require "plugins.statusline"
             end
         }
 
@@ -198,9 +193,6 @@ return packer.startup(
         -- git stuff
         use {
             "lewis6991/gitsigns.nvim",
-            cond = function()
-                return vim.fn.isdirectory ".git" == 1
-            end,
             config = function()
                 require "plugins.gitsigns"
             end

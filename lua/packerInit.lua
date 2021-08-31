@@ -3,7 +3,7 @@ local cmd = vim.cmd
 cmd "packadd packer.nvim"
 
 local present, packer = pcall(require, "packer")
-print(preset)
+
 if not present then
    local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/opt/packer.nvim"
 

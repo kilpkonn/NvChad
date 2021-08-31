@@ -1,5 +1,5 @@
 local colors = require("themes.onedark")
-local lsp = require "feline.providers.lsp"
+local lsp = require('feline.providers.lsp')
 
 local icon_styles = {
    default = {
