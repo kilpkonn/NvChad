@@ -1,9 +1,13 @@
 local present1, lspconfig = pcall(require, "lspconfig")
 local present2, lspinstall = pcall(require, "lspinstall")
 
+-- Install custom language servers
+require "plugins.language_servers"
+
 if not (present1 or present2) then
    return
 end
+
 
 local function on_attach(_, bufnr)
    local function buf_set_keymap(...)
@@ -24,7 +28,7 @@ local function on_attach(_, bufnr)
    buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
    buf_set_keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
    buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-   buf_set_keymap("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+   buf_set_keymap("n", "gk", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
    buf_set_keymap("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", opts)
    buf_set_keymap("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", opts)
    buf_set_keymap("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", opts)
@@ -41,7 +45,21 @@ local function on_attach(_, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.preselectSupport = true
+capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+capabilities.textDocument.completion.completionItem.tagSupport = { valueSet = { 1 } }
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+   properties = {
+      "documentation",
+      "detail",
+      "additionalTextEdits",
+   },
+}
 
 -- lspInstall + lspconfig stuff
 
@@ -54,12 +72,18 @@ local function setup_servers()
          lspconfig[lang].setup {
             on_attach = on_attach,
             capabilities = capabilities,
+            flags = {
+               debounce_text_changes = 500,
+            },
             -- root_dir = vim.loop.cwd,
          }
       elseif lang == "lua" then
          lspconfig[lang].setup {
             on_attach = on_attach,
             capabilities = capabilities,
+            flags = {
+               debounce_text_changes = 500,
+            },
             settings = {
                Lua = {
                   diagnostics = {
