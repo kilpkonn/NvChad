@@ -1,9 +1,6 @@
 local present1, lspconfig = pcall(require, "lspconfig")
 local present2, lspinstall = pcall(require, "lspinstall")
 
--- Install custom language servers
-require "plugins.language_servers"
-
 if not (present1 or present2) then
    return
 end
@@ -152,3 +149,26 @@ vim.notify = function(msg, log_level, _opts)
       vim.api.nvim_echo({ { msg } }, true, {})
    end
  end
+
+ -- Custom lang servers
+lspconfig.prolog_lsp.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+     debounce_text_changes = 500,
+  },
+    cmd = {"swipl",
+           "-g", "use_module(library(lsp_server)).",
+           "-g", "lsp_server:main",
+           "-t", "halt",
+           "--", "stdio"}
+}
+
+lspconfig.fsautocomplete.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+     debounce_text_changes = 500,
+  },
+  cmd = {'/home/tavo/.dotnet/tools/dotnet-fsautocomplete', '--background-service-enabled'}
+}

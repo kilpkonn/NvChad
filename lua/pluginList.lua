@@ -7,6 +7,8 @@ else
     return false
 end
 
+local use = packer.use
+
 return packer.startup(
     function()
         use {
@@ -346,6 +348,9 @@ return packer.startup(
             require 'plugins.trouble'
           end
         }
+
+        -- Custom language plugins
+        use { "ionide/Ionide-vim", after = "nvim-lspconfig", ft = { "fs", "fsx", "fsi" } }
 
     end
 )
