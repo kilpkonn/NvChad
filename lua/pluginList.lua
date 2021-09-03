@@ -148,6 +148,11 @@ return packer.startup(
         }
 
         use {
+          "hrsh7th/cmp-path",
+          after = "nvim-cmp",
+        }
+
+        use {
             "sbdchd/neoformat",
             cmd = "Neoformat"
         }
