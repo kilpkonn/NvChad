@@ -353,6 +353,10 @@ return packer.startup(
             require 'plugins.trouble'
           end
         }
+        use {
+          "tpope/vim-dadbod",
+          ft = { "sql" }
+        }
 
         -- Custom language plugins
         use { "ionide/Ionide-vim", after = "nvim-lspconfig", ft = { "fs", "fsx", "fsi" } }
