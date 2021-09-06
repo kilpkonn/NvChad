@@ -355,7 +355,7 @@ return packer.startup(
         }
         use {
           "tpope/vim-dadbod",
-          ft = { "sql" }
+          cmd = { "DB" }
         }
 
         -- Custom language plugins
