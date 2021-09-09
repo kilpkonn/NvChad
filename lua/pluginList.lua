@@ -70,6 +70,7 @@ return packer.startup(
 
         use {
             "nvim-treesitter/nvim-treesitter",
+            branch = "0.5-compat",
             event = "VimEnter",
             config = function()
                 require "plugins.treesitter"
@@ -106,8 +107,13 @@ return packer.startup(
         }
 
         use {
-            "hrsh7th/nvim-cmp",
+            "rafamadriz/friendly-snippets",
             event = "InsertEnter",
+        }
+
+        use {
+            "hrsh7th/nvim-cmp",
+            after = "friendly-snippets",
             config = function()
                require "plugins.cmp"
             end,
@@ -140,11 +146,6 @@ return packer.startup(
         use {
             "hrsh7th/cmp-buffer",
             after = "cmp-nvim-lsp",
-        }
-
-        use {
-            "rafamadriz/friendly-snippets",
-            after = "cmp-buffer",
         }
 
         use {
