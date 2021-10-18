@@ -91,14 +91,6 @@ return packer.startup(
         }
 
         use {
-            "onsails/lspkind-nvim",
-            after = "nvim-lspconfig",
-            config = function()
-                require("plugins.configs.others").lspkind()
-            end
-        }
-
-        use {
             "ray-x/lsp_signature.nvim",
             after = "nvim-lspconfig",
             config = function()

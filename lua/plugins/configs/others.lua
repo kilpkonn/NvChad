@@ -20,13 +20,6 @@ M.escape = function()
     vim.g.better_escape_shortcut = {"jk"}
 end
 
-M.lspkind = function()
-    local present, lspkind = pcall(require, "lspkind")
-    if present then
-        lspkind.init()
-    end
-end
-
 M.neoscroll = function()
     pcall(
         function()
