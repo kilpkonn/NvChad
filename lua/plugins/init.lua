@@ -1,4 +1,4 @@
-local present, _ = pcall(require, "packerInit")
+local present, _ = pcall(require, "plugins.packerInit")
 local packer
 
 if present then
@@ -32,7 +32,7 @@ return packer.startup(
             "kyazdani42/nvim-web-devicons",
             after = "nvim-base16.lua",
             config = function()
-                require "plugins.icons"
+                require "plugins.configs.icons"
             end
         }
 
@@ -40,7 +40,7 @@ return packer.startup(
             "famiu/feline.nvim",
             after = "nvim-web-devicons",
             config = function()
-               require "plugins.statusline"
+               require "plugins.configs.statusline"
             end,
         }
 
@@ -48,7 +48,7 @@ return packer.startup(
             "akinsho/nvim-bufferline.lua",
             after = "nvim-base16.lua",
             config = function()
-                require "plugins.bufferline"
+                require "plugins.configs.bufferline"
             end
         }
 
@@ -56,7 +56,7 @@ return packer.startup(
             "jdhao/better-escape.vim",
             event = "InsertEnter",
             config = function()
-                require "plugins.others".escape()
+                require "plugins.configs.others".escape()
             end
         }
 
@@ -64,7 +64,7 @@ return packer.startup(
             "norcalli/nvim-colorizer.lua",
             event = "BufRead",
             config = function()
-                require("plugins.others").colorizer()
+                require("plugins.configs.others").colorizer()
             end
         }
 
@@ -73,7 +73,7 @@ return packer.startup(
             branch = "0.5-compat",
             event = "VimEnter",
             config = function()
-                require "plugins.treesitter"
+                require "plugins.configs.treesitter"
             end
         }
 
@@ -86,15 +86,15 @@ return packer.startup(
             "neovim/nvim-lspconfig",
             after = "nvim-lspinstall",
             config = function()
-                require "plugins.lspconfig"
+                require "plugins.configs.lspconfig"
             end
         }
 
         use {
             "onsails/lspkind-nvim",
-            event = "BufEnter",
+            after = "nvim-lspconfig",
             config = function()
-                require("plugins.others").lspkind()
+                require("plugins.configs.others").lspkind()
             end
         }
 
@@ -102,7 +102,7 @@ return packer.startup(
             "ray-x/lsp_signature.nvim",
             after = "nvim-lspconfig",
             config = function()
-                require("plugins.others").signature()
+                require("plugins.configs.others").signature()
             end
         }
 
@@ -113,9 +113,9 @@ return packer.startup(
 
         use {
             "hrsh7th/nvim-cmp",
-            after = "friendly-snippets",
+            after = {"friendly-snippets", "nvim-lspconfig"},
             config = function()
-               require "plugins.cmp"
+               require "plugins.configs.cmp"
             end,
         }
 
@@ -124,7 +124,7 @@ return packer.startup(
             wants = "friendly-snippets",
             after = "nvim-cmp",
             config = function()
-               require("plugins.others").luasnip()
+               require("plugins.configs.others").luasnip()
             end,
          }
 
@@ -163,7 +163,7 @@ return packer.startup(
             "kyazdani42/nvim-tree.lua",
             cmd = { "NvimTreeToggle", "NvimTreeFocus" },
             config = function()
-                require "plugins.nvimtree"
+                require "plugins.configs.nvimtree"
             end
         }
 
@@ -194,7 +194,7 @@ return packer.startup(
              },
           },
           config = function()
-             require "plugins.telescope"
+             require "plugins.configs.telescope"
           end,
        }
 
@@ -202,7 +202,7 @@ return packer.startup(
         use {
             "lewis6991/gitsigns.nvim",
             config = function()
-                require "plugins.gitsigns"
+                require "plugins.configs.gitsigns"
             end
         }
 
@@ -211,7 +211,7 @@ return packer.startup(
             "windwp/nvim-autopairs",
             after = "nvim-cmp",
             config = function()
-                require "plugins.autopairs"
+                require "plugins.configs.autopairs"
             end
         }
 
@@ -224,7 +224,7 @@ return packer.startup(
             "terrortylor/nvim-comment",
             cmd = "CommentToggle",
             config = function()
-                require("plugins.others").comment()
+                require("plugins.configs.others").comment()
             end
         }
 
@@ -238,7 +238,7 @@ return packer.startup(
                 "SessionSave"
             },
             setup = function()
-                require "plugins.dashboard"
+                require "plugins.configs.dashboard"
             end
         }
 
@@ -246,7 +246,7 @@ return packer.startup(
         use {
             "Pocco81/AutoSave.nvim",
             config = function()
-                require "plugins.autosave"
+                require "plugins.configs.autosave"
             end,
             cond = function()
                 return vim.g.auto_save == true
@@ -258,7 +258,7 @@ return packer.startup(
             "karb94/neoscroll.nvim",
             event = "WinScrolled",
             config = function()
-                require("plugins.others").neoscroll()
+                require("plugins.configs.others").neoscroll()
             end
         }
 
@@ -270,7 +270,7 @@ return packer.startup(
                 "TZFocus"
             },
             config = function()
-                require "plugins.zenmode"
+                require "plugins.configs.zenmode"
             end
         }
 
@@ -278,7 +278,7 @@ return packer.startup(
             "lukas-reineke/indent-blankline.nvim",
             event = "BufRead",
             setup = function()
-                require("plugins.others").blankline()
+                require("plugins.configs.others").blankline()
             end
         }
 
@@ -299,7 +299,7 @@ return packer.startup(
             after = "nvim-lspconfig",
             ft = {'rs', 'ron'},
             config = function ()
-                require "plugins.rust-tools"
+                require "plugins.configs.rust-tools"
             end
         }
 
@@ -307,7 +307,7 @@ return packer.startup(
             'mfussenegger/nvim-dap',
             event = "BufRead",
             config = function ()
-              require "plugins.dap"
+              require "plugins.configs.dap"
             end
         }
 
