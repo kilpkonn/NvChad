@@ -91,6 +91,14 @@ return packer.startup(
         }
 
         use {
+          "nvim-lua/lsp_extensions.nvim",
+          after = "nvim-lspconfig",
+          config = function()
+              require "plugins.configs.lsp_extensions"
+          end
+        }
+
+        use {
             "ray-x/lsp_signature.nvim",
             after = "nvim-lspconfig",
             config = function()
