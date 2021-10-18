@@ -129,7 +129,7 @@ _startup() {
             sleep 1
             "${_NVIM}" +'autocmd User PackerComplete ++once lua print "Waiting for PackerCompile.." vim.cmd "PackerCompile"' \
                 +'autocmd User PackerCompileDone ++once quitall' \
-                +'lua print "Wait for PackerUpdate and PackerCompile to complete.." require "pluginList" vim.cmd "PackerUpdate"'
+                +'lua print "Wait for PackerUpdate and PackerCompile to complete.." require "plugins" vim.cmd "PackerUpdate"'
             "${_NVIM}"
         else
             prompt -e "Error: Neovim is installed, but version is lower than 0.5.x, install Neovim >= 5.x and then run nvim & do :PackerSync"
