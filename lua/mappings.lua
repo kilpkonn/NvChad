@@ -136,6 +136,13 @@ map("n", "<Leader>fh", ":Telescope help_tags<CR>", opt)
 map("n", "<Leader>fo", ":Telescope oldfiles<CR>", opt)
 map("n", "<Leader>th", ":Telescope themes<CR>", opt)
 
+map("n", "gr", ":Telescope lsp_references<CR>", opt)
+map("n", "ca", ":Telescope lsp_code_actions<CR>", opt)
+map("n", "gi", ":Telescope lsp_implementations<CR>", opt)
+map("n", "gd", ":Telescope lsp_definitions<CR>", opt)
+map("n", "bd", ":Telescope lsp_document_diagnostics<CR>", opt)
+map("n", "wd", ":Telescope lsp_workspace_diagnostics<CR>", opt)
+
 -- bufferline tab stuff
 map("n", "<S-t>", ":enew<CR>", opt) -- new buffer
 map("n", "<C-t>b", ":tabnew<CR>", opt) -- new tab

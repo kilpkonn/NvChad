@@ -132,6 +132,11 @@ fg("TSRepeat", "#E06C75")
 
 fg("InlayHint", "#1070A0")
 
+fg("CmpItemAbbr", #D2E4F4)
+fg("CmpItemAbbrMatch", #90C0FF)
+fg("CmpItemKind", #E89A46)
+fg("CmpItemMenu", "#FF0000")
+
 -- packer's floating window
 
 bg("NormalFloat", "NONE")

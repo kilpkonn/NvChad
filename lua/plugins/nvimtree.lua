@@ -40,10 +40,10 @@ g.nvim_tree_icons = {
       -- disable indent_markers option to get arrows working or if you want both arrows and indent then just add the arrow icons in front            ofthe default and opened folders below!
       -- arrow_open = "",
       -- arrow_closed = "",
-      default = "",
-      empty = "", -- 
-      empty_open = "",
-      open = "",
+      default = "",
+      empty = "", -- 
+      empty_open = "",
+      open = "",
       symlink = "",
       symlink_open = "",
    },
@@ -65,7 +65,7 @@ nvimtree.setup {
    auto_close = false,
    open_on_tab = false,
    hijack_cursor = true,
-   update_cwd = true,
+   update_cwd = false,
    update_focused_file = {
       enable = true,
       update_cwd = false,
