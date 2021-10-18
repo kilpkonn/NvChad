@@ -286,14 +286,14 @@ return packer.startup(
             }
         }
 
-        use {
-            "simrat39/rust-tools.nvim",
-            after = "nvim-lspconfig",
-            ft = {'rs', 'ron'},
-            config = function ()
-                require "plugins.configs.rust-tools"
-            end
-        }
+        -- use {
+        --     "simrat39/rust-tools.nvim",
+        --     after = "nvim-lspconfig",
+        --     ft = {'rs', 'ron'},
+        --     config = function ()
+        --         require "plugins.configs.rust-tools"
+        --     end
+        -- }
 
         use {
             'mfussenegger/nvim-dap',
