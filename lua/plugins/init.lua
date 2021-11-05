@@ -294,15 +294,6 @@ return packer.startup(
             }
         }
 
-        -- use {
-        --     "simrat39/rust-tools.nvim",
-        --     after = "nvim-lspconfig",
-        --     ft = {'rs', 'ron'},
-        --     config = function ()
-        --         require "plugins.configs.rust-tools"
-        --     end
-        -- }
-
         use {
             'mfussenegger/nvim-dap',
             event = "BufRead",
@@ -312,8 +303,11 @@ return packer.startup(
         }
 
         use {
-          'theHamsta/nvim-dap-virtual-text',
-          event = "BufRead"
+            'theHamsta/nvim-dap-virtual-text',
+            event = "BufRead",
+            config = function ()
+              require "plugins.configs.dap-virtual-text"
+            end
         }
 
         use {
