@@ -4,9 +4,6 @@ if not present then
     return
 end
 
--- Enable virtual text
-vim.g.dap_virtual_text = true
-
 dap.adapters.lldb = {
   type = 'executable',
   command = '/usr/bin/lldb-vscode', -- adjust as needed
