@@ -25,7 +25,9 @@ cmp.setup {
          vim_item.menu = ({
             nvim_lsp = "[LSP]",
             buffer = "[BUF]",
-            path = "[PTH]"
+            path = "[PTH]",
+            luasnip = "[SNP]",
+            calc = "[CLC]"
          })[entry.source.name]
 
          return vim_item
