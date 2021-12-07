@@ -4,7 +4,7 @@ if not present then
    return
 end
 
-vim.opt.completeopt = "menuone,noselect"
+vim.opt.completeopt = "menu,menuone,noselect"
 
 -- nvim-cmp setup
 cmp.setup {
@@ -24,7 +24,6 @@ cmp.setup {
 
          vim_item.menu = ({
             nvim_lsp = "[LSP]",
-            nvim_lua = "[Lua]",
             buffer = "[BUF]",
             path = "[PTH]"
          })[entry.source.name]
@@ -38,19 +37,19 @@ cmp.setup {
       ["<C-d>"] = cmp.mapping.scroll_docs(-4),
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-Space>"] = cmp.mapping.complete(),
-      ["<C-e>"] = cmp.mapping.close(),
-      ["<CR>"] = cmp.mapping.confirm {
-         behavior = cmp.ConfirmBehavior.Replace,
-         select = false,
-      },
-     ["<Tab>"] = function(fallback)
-         if cmp.visible() then
+      ['<C-e>'] = cmp.mapping({
+        i = cmp.mapping.abort(),
+        c = cmp.mapping.close(),
+      }),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      ["<Tab>"] = function(fallback)
+        if cmp.visible() then
             cmp.select_next_item()
-         elseif require("luasnip").expand_or_jumpable() then
+        elseif require("luasnip").expand_or_jumpable() then
             vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
-         else
+        else
             fallback()
-         end
+        end
       end,
       ["<S-Tab>"] = function(fallback)
          if cmp.visible() then
@@ -62,11 +61,28 @@ cmp.setup {
          end
       end, 
    },
-   sources = {
+   sources = cmp.config.sources({
       { name = "nvim_lsp" },
       { name = "luasnip" },
+      { name = 'calc' }
+    }, {
       { name = "buffer" },
-      { name = "nvim_lua" },
       { name = "path" },
-   },
+   })
 }
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})

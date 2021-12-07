@@ -70,7 +70,6 @@ return packer.startup(
 
         use {
             "nvim-treesitter/nvim-treesitter",
-            branch = "0.5-compat",
             event = "VimEnter",
             config = function()
                 require "plugins.configs.treesitter"
@@ -81,6 +80,11 @@ return packer.startup(
             "williamboman/nvim-lsp-installer",
             event = "BufRead"
         }
+
+        -- use {
+        --     "hrsh7th/cmp-nvim-lsp",
+        --     after = "nvim-lsp-installer",
+        -- }
 
         use {
             "neovim/nvim-lspconfig",
@@ -112,14 +116,6 @@ return packer.startup(
         }
 
         use {
-            "hrsh7th/nvim-cmp",
-            after = {"friendly-snippets", "nvim-lspconfig"},
-            config = function()
-               require "plugins.configs.cmp"
-            end,
-        }
-
-        use {
             "L3MON4D3/LuaSnip",
             wants = "friendly-snippets",
             after = "nvim-cmp",
@@ -129,28 +125,41 @@ return packer.startup(
          }
 
         use {
+            "hrsh7th/nvim-cmp",
+            after = {"friendly-snippets", "nvim-lspconfig", "luasnip"},
+            config = function()
+               require "plugins.configs.cmp"
+            end,
+        }
+
+        use {
             "saadparwaiz1/cmp_luasnip",
             after = "LuaSnip",
         }
 
         use {
             "hrsh7th/cmp-nvim-lua",
-            after = "cmp_luasnip",
-        }
-
-        use {
-            "hrsh7th/cmp-nvim-lsp",
-            after = "cmp-nvim-lua",
+            after = "nvim-cmp",
         }
 
         use {
             "hrsh7th/cmp-buffer",
-            after = "cmp-nvim-lsp",
+            after = "nvim-cmp",
         }
 
         use {
-          "hrsh7th/cmp-path",
-          after = "nvim-cmp",
+            "hrsh7th/cmp-path",
+            after = "nvim-cmp",
+        }
+
+        use {
+            "hrsh7th/cmp-cmdline",
+            after = "nvim-cmp",
+        }
+
+        use {
+            "hrsh7th/cmp-calc",
+            after = "nvim-cmp",
         }
 
         use {
