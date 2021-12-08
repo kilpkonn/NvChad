@@ -66,8 +66,7 @@ cmp.setup {
    sources = cmp.config.sources({
       { name = "nvim_lsp" },
       { name = "luasnip" },
-      { name = 'calc' }
-    }, {
+      { name = 'calc' },
       { name = "buffer" },
       { name = "path" },
    })

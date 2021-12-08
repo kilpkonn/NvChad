@@ -81,11 +81,6 @@ return packer.startup(
             event = "BufRead"
         }
 
-        -- use {
-        --     "hrsh7th/cmp-nvim-lsp",
-        --     after = "nvim-lsp-installer",
-        -- }
-
         use {
             "neovim/nvim-lspconfig",
             after = "nvim-lsp-installer",
@@ -139,6 +134,11 @@ return packer.startup(
 
         use {
             "hrsh7th/cmp-nvim-lua",
+            after = "nvim-cmp",
+        }
+        
+        use {
+            "hrsh7th/cmp-nvim-lsp",
             after = "nvim-cmp",
         }
 
