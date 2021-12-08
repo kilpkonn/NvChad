@@ -104,6 +104,8 @@ _fetch() {
     git checkout HEAD init.lua
     printf "  + %s\n" "$(prompt -i "Checking out ftdetect")"
     git checkout HEAD ftdetect/
+    printf "  + %s\n" "$(prompt -i "Checking out ftplugin")"
+    git checkout HEAD ftplugin/
 }
 
 _check_prev_conf() {
